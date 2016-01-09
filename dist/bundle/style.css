@@ -1,0 +1,276 @@
+@import url("bootstrap.min.css");
+/*---------------------*/
+/*---  Universal Styles ---*/
+/*---------------------*/
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+ul {
+  padding: 0;
+  list-style: none; }
+
+img {
+  width: 100%; }
+
+html, body {
+  /*__ sticky footer __*/
+  height: 100%; }
+
+main#content-wrapper {
+  /*__ sticky footer __*/
+  min-height: 100%;
+  margin-bottom: -60px; }
+
+#sticky-foot-push {
+  /*__ sticky footer __*/
+  height: 60px; }
+
+/*Universal Mobile*/
+main#content-wrapper {
+  padding-top: 66px; }
+
+/*--- PHP-Wordpress Admin Styles  ---*/
+/*body.admin-bar{
+  padding-top: 50px;
+}*/
+body.admin-bar main#content-wrapper {
+  margin-bottom: -92px; }
+body.admin-bar #sticky-foot-push {
+  height: 92px; }
+body.admin-bar .admin-bar .navbar-fixed-top {
+  top: 0px;
+  border-top: 3px red solid; }
+
+/*--- Colors  ---*/
+/*--- App Styles  ---*/
+/*-- Multipage--Sidebar --*/
+.sidebar {
+  padding-top: 40px; }
+
+.sidebar h3 {
+  color: #5b5b5b; }
+
+.sidebar p {
+  color: #b9b9b9; }
+
+/*------------------------*/
+/*-- Multipage--Navbar --*/
+/*------------------------*/
+nav.navbar {
+  background: #4fa8db;
+  /* MOBILE */ }
+  nav.navbar .navbar-header,
+  nav.navbar .navbar-brand,
+  nav.navbar .navbar-nav {
+    position: relative; }
+  nav.navbar .navbar-toggle {
+    background: black; }
+    nav.navbar .navbar-toggle .glyphicon-menu-hamburger {
+      color: white; }
+  nav.navbar .navbar-brand {
+    padding-left: 10px;
+    padding-top: 10px; }
+    nav.navbar .navbar-brand img {
+      /*width: 32px;*/ }
+  nav.navbar ul.navbar-nav > li a {
+    color: white;
+    text-transform: uppercase; }
+    nav.navbar ul.navbar-nav > li a:hover {
+      background: #97cddb; }
+  nav.navbar ul.navbar-nav ul.sub-menu {
+    padding-left: 20px;
+    padding-right: 10px; }
+    nav.navbar ul.navbar-nav ul.sub-menu > li a {
+      color: white;
+      font-size: 14px;
+      text-align: left;
+      text-decoration: none; }
+
+/*-- Front Page (Landing Page) - Style  --*/
+/*.front-page{
+  background: url('./images/mtns_1024.jpg') 00% 00% no-repeat;
+  background-size: cover;
+}
+.fp-content-area {
+  background: url('./images/derrick-sketch.png') 83% 93% no-repeat;
+  background-size: cover;
+}
+.fp-content-area .container{
+  background: $white;
+}
+.fp-content-area p{
+  font-size: 18px;
+}*/
+.front-page-slider.carousel {
+  height: 200px; }
+
+.front-page-slider .carousel-caption {
+  background: rgba(100, 100, 100, 0.8);
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  padding: 15px;
+  top: 10%;
+  left: 15%; }
+
+/*.front-page-slider .item:nth-of-type(1) .carousel-caption {
+  top: 10%;
+  left: 15%;
+}*/
+.carousel-inner,
+.item {
+  height: 100%; }
+
+/*-- For a blog post --*/
+/*--Single page blog....w/ comments-*/
+article.post {
+  margin-top: 60px; }
+
+section.blog-comment-style {
+  background: #eee; }
+
+section.blog-comment-style {
+  background: #eee;
+  color: #888;
+  padding: 20px; }
+
+section.blog-comment-style h3 {
+  font-size: 21px; }
+
+section.blog-comment-style .logged-in-as {
+  font-style: italic; }
+
+section.blog-comment-style .logged-in-as a:last-of-type:before {
+  content: "|  "; }
+
+section.blog-comment-style label {
+  display: block; }
+
+section.blog-comment-style .form-submit {
+  text-align: right; }
+
+aside.comment {
+  padding: 15px 0; }
+
+aside.comment:nth-of-type(2n) {
+  background: #fafafa; }
+
+/*---page-portfolio.php...Portfolio-Piece---*/
+#projects-portfolio .portfolio-piece {
+  position: relative;
+  text-align: center;
+  padding: 3%; }
+  #projects-portfolio .portfolio-piece a {
+    color: #323232; }
+    #projects-portfolio .portfolio-piece a:hover img {
+      transform: scale(1.5, 1.5); }
+    #projects-portfolio .portfolio-piece a:hover .label-container {
+      background: #97cddb; }
+  #projects-portfolio .portfolio-piece .img-container {
+    overflow: hidden;
+    width: 100%; }
+    #projects-portfolio .portfolio-piece .img-container img {
+      width: 100%;
+      transition: all .18s; }
+  #projects-portfolio .portfolio-piece .label-container {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translateY(-50%);
+    width: 94%;
+    height: 100px;
+    background: rgba(225, 225, 225, 0.6);
+    transition: all .18s; }
+
+/*---single-portfolio.php...Portfolio-Piece---*/
+.single-portfolio h1,
+.single-portfolio .nav-arrows {
+  margin: 0;
+  padding-top: 20px; }
+
+.single-portfolio .feature-image img {
+  max-height: 250px; }
+
+.single-portfolio .nav-arrows {
+  font-size: 28px; }
+
+/*---page-bios...Bios---*/
+.bios .blurb {
+  padding: 20px 0; }
+
+.bios .blurb p {
+  font-size: 18px; }
+
+.bios .bio-text p {
+  padding-left: 20px; }
+
+.bios .bio-text h4 {
+  border-left: 4px solid #97cddb;
+  padding: 10px;
+  background: #eee; }
+
+/*---Services Page---*/
+.services li {
+  display: inline-block;
+  background: #97cddb;
+  padding: 4px;
+  margin: 3px;
+  color: white; }
+
+/*--- Footer ---*/
+footer {
+  height: 60px;
+  background: #595b5b;
+  color: white; }
+
+/*--- Med-Screen+ Styles  ---*/
+@media screen and (min-width: 768px) {
+  /*styles for navbar*/
+  .admin-bar .navbar-fixed-top {
+    top: 32px;
+    border-top: 3px red solid; }
+
+  nav .navbar-brand {
+    position: relative;
+    left: 20px; }
+
+  .navbar-collapse {
+    text-align: center; }
+
+  nav ul.navbar-nav {
+    display: inline-block;
+    float: none; }
+
+  nav .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    padding: 5px 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #222222;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+
+  nav .sub-menu .menu-item:hover .sub-menu {
+    display: block; }
+
+  nav .sub-menu:hover {
+    display: block; }
+
+  /*front-page */
+  .front-page-slider.carousel {
+    border-bottom: 30px #4fa8db solid;
+    height: 300px; }
+
+  .single-portfolio .feature-image img {
+    width: 100%;
+    max-width: 512px;
+    max-height: 100%; } }
+
+/*# sourceMappingURL=style.css.map */
