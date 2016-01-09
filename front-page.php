@@ -60,10 +60,17 @@
       <!-- Example row of columns -->
         <div class="row">
           <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <?php the_content(); ?>
-           <?php endwhile; endif; ?>
+             <?php 
+               $args=[
+                 'menu' => 'sub-menu',
+                 'menu_class' => 'nav navbar-nav',
+                 'container' => 'false'
+               ];
+
+               wp_nav_menu($args)
+             ?>
           </div>
+          
         </div>
 
         <div class="row">

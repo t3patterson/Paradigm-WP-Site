@@ -58,7 +58,8 @@
   function register_theme_menus(){
     register_nav_menus(
       [
-        'header-menu' => __('Header Menu')
+        'header-menu' => __('Header Menu'),
+        'sub-menu'=> __('Sub Menu')
       ]
     ); 
   }

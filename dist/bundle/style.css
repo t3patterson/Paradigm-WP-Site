@@ -225,52 +225,47 @@ footer {
 
 /*--- Med-Screen+ Styles  ---*/
 @media screen and (min-width: 768px) {
-  /*styles for navbar*/
-  .admin-bar .navbar-fixed-top {
-    top: 32px;
-    border-top: 3px red solid; }
-
-  nav .navbar-brand {
+  nav .navbar-header .navbar-brand {
     position: relative;
-    left: 20px; }
-
-  .navbar-collapse {
-    text-align: center; }
-
-  nav ul.navbar-nav {
+    left: 10px; }
+  nav .navbar ul.navbar-nav {
     display: inline-block;
     float: none; }
-
-  nav .sub-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    min-width: 160px;
-    padding: 5px 0;
-    font-size: 14px;
-    text-align: left;
-    list-style: none;
-    background-color: #222222;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
-
-  nav .sub-menu .menu-item:hover .sub-menu {
-    display: block; }
-
-  nav .sub-menu:hover {
-    display: block; }
+    nav .navbar ul.navbar-nav ul.sub-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      display: none;
+      min-width: 160px;
+      padding: 5px 0;
+      font-size: 14px;
+      text-align: left;
+      list-style: none;
+      background-color: #222222;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175); }
+      nav .navbar ul.navbar-nav ul.sub-menu:hover {
+        display: block; }
+      nav .navbar ul.navbar-nav ul.sub-menu .menu-item:hover .sub-menu {
+        display: block; }
 
   /*front-page */
   .front-page-slider.carousel {
-    border-bottom: 30px #4fa8db solid;
     height: 300px; }
 
   .single-portfolio .feature-image img {
     width: 100%;
     max-width: 512px;
-    max-height: 100%; } }
+    max-height: 100%; }
+
+  /*-------------------------*/
+  /*-------------------------*/
+  /*-------------------------*/
+  /*styles for wp-admin bar*/
+  body.admin-bar .navbar-fixed-top {
+    top: 32px;
+    border-top: 3px red solid; } }
 
 /*# sourceMappingURL=style.css.map */

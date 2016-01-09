@@ -337,59 +337,50 @@ footer {
 
 @media screen and (min-width: 768px) {  
   
+  nav {  
+    .navbar-header{
+      .navbar-brand {
+        position: relative;
+        left: 10px;
+      }
+    }
+
+    .navbar {
+      ul.navbar-nav{
+        display: inline-block;
+        float: none;
+
+         ul.sub-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          z-index: 1000;
+          display: none;
+          min-width: 160px;
+          padding: 5px 0;
+          font-size: 14px;
+          text-align: left;
+          list-style: none;
+          background-color: rgba(34, 34, 34, 1);
+          border: 1px solid rgba(0,0,0,.15);
+          -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+          box-shadow: 0 6px 12px rgba(0,0,0,.175);
+          
+          &:hover{
+            display: block;
+          }
+
+          .menu-item:hover .sub-menu{
+            display: block;
+          }
+        }
+      }
+    }
+  }
   
-  /*styles for navbar*/
-  
-  .admin-bar .navbar-fixed-top{
-    top: 32px;
-    border-top: 3px red solid;
-  }
-
-  nav.navbar {
-  }
-
-  nav .navbar-brand {
-    position: relative;
-    left: 20px;
-  }
-
-  .navbar-collapse{
-    text-align: center;
-  }
-
-  nav ul.navbar-nav{
-    display: inline-block;
-    float: none;
-  }
-
-  nav .sub-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    min-width: 160px;
-    padding: 5px 0;
-    font-size: 14px;
-    text-align: left;
-    list-style: none;
-    background-color: rgba(34, 34, 34, 1);
-    border: 1px solid rgba(0,0,0,.15);
-    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
-    box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  }
-
- nav .sub-menu .menu-item:hover .sub-menu {
-    display: block;
-  }
-
- nav .sub-menu:hover{
-    display: block;
-  }
   
   /*front-page */
   .front-page-slider.carousel{
-    border-bottom: 30px $primary_color solid;
     height: 300px;
   }
 
@@ -400,5 +391,17 @@ footer {
     max-height: 100%;
   }
 
+  /*-------------------------*/
+  /*-------------------------*/
+  /*-------------------------*/
+  /*styles for wp-admin bar*/
+  
+  body.admin-bar .navbar-fixed-top{
+    top: 32px;
+    border-top: 3px red solid;
+  }
+
+
 }
+
 
