@@ -1,5 +1,141 @@
 @import url('bootstrap.min.css');
 
+@mixin navbar-nav-style($float, $align){
+  ul.navbar-nav{
+    margin: 0;
+    float: $float;
+    text-align: $align;
+
+    > li a {
+    color: $white; 
+    text-transform: uppercase;
+      &:hover{
+          background: $secondary_color;
+      }
+    }
+
+    ul.sub-menu {
+      padding-left: 20px;
+      padding-right: 10px;
+
+      > li a {
+        color: $white;
+        font-size: 14px;
+        text-align: left;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@mixin flippy_card($wd, $ht, $bg1, $bg2){
+  position: relative;
+  height: $wd;
+  width: $ht;
+  perspective: 1000px;
+
+  .card-side{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: .7s all;
+    transform-style: preserve-3d;
+
+      &.side-a{
+        transform: rotateY(0deg);
+        background: $bg1;
+        z-index: 1;
+    }
+      &.side-b{
+        transform: rotateY(180deg);
+        background: $bg2;
+        z-index: 2;
+
+        h4{
+          position: absolute;
+          top: 50%; left: 50%; transform: translate(-50%,-50%);
+        }
+    }
+  }
+  
+   &:hover{
+        .side-a{
+          transform: rotateY(-180deg);
+        }
+        .side-b{
+          transform: rotateY(0deg);
+        }
+    }
+}
+
+@mixin splash_carousel($el_ht, $cpn_offset_x, $cpn_offset_y){
+  .splash-slider{
+    height: $el_ht;
+
+    .carousel-inner{
+      height: 100%;
+      .item {
+        height: 100%;
+        .carousel-caption{
+          width: 100%;
+          height: 100%;
+          text-align: left;
+          left: $cpn_offset_x;
+          top: $cpn_offset_y;
+          
+          h4 {
+            font-family: 'Open Sans';
+            display: inline-block;
+            font-weight: '700';
+            text-transform: uppercase;
+            padding: 10px;
+            margin: 5px 0;
+          
+
+            &:nth-of-type(1) {
+              margin-left: 20%;
+              background: $charcoal;
+            }
+            
+            &:nth-of-type(2) {
+              margin-left: 22%;
+              background: $charcoal;
+            }
+
+            &:nth-of-type(3) {
+              margin-left: 27%;
+              background: $charcoal;
+            }
+          }
+        }
+      }
+    }
+    .carousel-control {
+      position: absolute;
+      height: 100%;
+      margin-top: -10px;
+      display: inline-block;
+      
+      span {
+        position: absolute;
+        top: 50%;
+      }
+    
+      .glyphicon-menu-left{
+        left: 40%;
+        margin-left: -10px;
+        z-index: 5;
+      }
+      .glyphicon-menu-right{
+        right: 40%;
+        margin-right: -10px;
+        z-index: 5;
+      }
+    }
+  } 
+}
+
 /*---------------------*/
 /*---  Universal Styles ---*/
 /*---------------------*/
@@ -15,31 +151,28 @@ ul {
 }
 
 img {
-  width: 100%;
+  height: 100%;
+  max-width: 100%;
 }
 
 html, body {
-  /*__ sticky footer __*/
-  height: 100%;
+  font-family: 'Open Sans', 'Helvetica',sans-serif;
 }
 
-$footer-size: 60px;
+h1,h2,h3,h4,h5,h6, nav{
+  font-family: 'Abel', 'Helvetica',sans-serif;
+}
+
 
 main#content-wrapper {
-  /*__ sticky footer __*/
-  min-height: 100%;
-  margin-bottom: -$footer_size;
 }
 
-#sticky-foot-push {
-  /*__ sticky footer __*/
-  height: $footer_size;
-}
 
 /*Universal Mobile*/
-$main_content_top_padding: 66px;
+$menu_height_padding: 57px;
+
 main#content-wrapper {
-  padding-top: $main_content_top_padding;
+  padding-top: $menu_height_padding;
 }
 
 /*--- PHP-Wordpress Admin Styles  ---*/
@@ -50,14 +183,6 @@ main#content-wrapper {
 
 body.admin-bar{
   $admin_adjust: 32px;
-
-  main#content-wrapper{
-    margin-bottom: -$footer_size - $admin_adjust;
-  }
-
-  #sticky-foot-push {
-    height: $footer_size + $admin_adjust;
-  }
 
   .admin-bar .navbar-fixed-top{
     top: 0px;
@@ -75,7 +200,8 @@ $dark_gray: rgba(91,91,91,1);
 $charcoal: rgba(50,50,50,1);
 $primary_color: rgba(79,168,219,1.0);
 $secondary_color: rgba(151,205,219,1);
-$tertiary_color: rgba(255,81,112,1.0);
+$tertiary_color: rgba(220,236,247,1);
+$alt_color: rgba(255,81,112,1.0);
 
 
 /*--- App Styles  ---*/
@@ -93,11 +219,12 @@ $tertiary_color: rgba(255,81,112,1.0);
   color: $med_gray;
 }
 /*------------------------*/
-/*-- Multipage--Navbar --*/
+/*-- Multipage--Navbars --*/
 /*------------------------*/
 
 nav.navbar {
   background: $primary_color;
+  
   .navbar-header, 
   .navbar-brand,
   .navbar-nav {
@@ -121,73 +248,60 @@ nav.navbar {
       /*width: 32px;*/
     }
   }
+  
+  @include navbar-nav-style(left,left); 
+
+}
+
+
+nav.on-page-nav{
+  background: $primary_color;
 
   ul.navbar-nav{
-    > li a {
-    color: $white; 
-    text-transform: uppercase;
-      &:hover{
-          background: $secondary_color;
-      }
-    }
-
-    ul.sub-menu {
-      padding-left: 20px;
-      padding-right: 10px;
-
-      > li a {
-        color: $white;
-        font-size: 14px;
-        text-align: left;
-        text-decoration: none;
-      }
+    > li {
+      float: none;
+      display: inline-block;
     }
   }
+
+  @include navbar-nav-style(none,center);
 }
   
+/*-------------------------------------*/
 /*-- Front Page (Landing Page) - Style  --*/
+/*-------------------------------------*/
 
-/*.front-page{
-  background: url('./images/mtns_1024.jpg') 00% 00% no-repeat;
-  background-size: cover;
-}
-.fp-content-area {
-  background: url('./images/derrick-sketch.png') 83% 93% no-repeat;
-  background-size: cover;
-}
-.fp-content-area .container{
-  background: $white;
-}
-.fp-content-area p{
-  font-size: 18px;
-}*/
-
-.front-page-slider.carousel{
-  height: 200px;
-}
-
-.front-page-slider .carousel-caption{
-    background: rgba(100,100,100,.8);
-    width: 200px;
-    height: 50px;
-    text-align: center;
-    padding: 15px;
-
-    top: 10%;
-    left: 15%;
-
+main.front-page {
+  @include splash_carousel(200px, 20px, 0%);
+  
+  .landing-content{
+    .content-block{
+      &:nth-of-type(2n){background: $tertiary_color;}
+      padding: 20px;
+      img{
+        width: 200px;
+      }
+    }
   }
 
+  .our-team{
+    background: $light_gray;
+    .flip-card{
+      margin: 0 auto;
+      @include flippy_card(200px, 200px,$primary_color,$alt_color);
+      
+      h4{
+        color: $white;
+        font-weight: 400;
+      }
+    }
 
+    .card-label{
+      text-align: center;
+      h3{margin-bottom:0;}
+    }
+  }
 
-  /*.front-page-slider .item:nth-of-type(1) .carousel-caption {
-    top: 10%;
-    left: 15%;
-  }*/
-
-.carousel-inner,
-.item {
-  height: 100%;
 }
 
 
@@ -326,17 +440,61 @@ aside.comment:nth-of-type(2n){
 
 /*--- Footer ---*/
 footer {
-  height: $footer_size;
+  padding: 10px 0;
   background: rgba(89,91,91,1);
   color: $white;
+  font-size: 18px;
+  
+  .company-logo{
+    padding-top: 20px;
+    p {
+      width: 250px;
+      img{
+        height: 100%;
+      }
 
+    }
+  }
+  
+
+  .footer-nav{
+    padding-top: 12px;
+    ul.menu {
+    margin: 0;
+      li {
+        text-align: center;
+        text-transform: uppercase;
+        width: 200px;
+        margin: 0 auto;
+        a { 
+          display: block;
+          padding: 8px 5px;
+          color: $white; 
+          &:hover{
+            background: $primary_color;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .company-address{
+    padding-top: 12px;
+  }
 }
 
 
 /*--- Med-Screen+ Styles  ---*/
 
 @media screen and (min-width: 768px) {  
+  $menu_height_padding: 51px;
   
+  main#content-wrapper {
+    padding-top: $menu_height_padding;
+  }
+
+
   nav {  
     .navbar-header{
       .navbar-brand {
@@ -379,17 +537,52 @@ footer {
   }
   
   
-  /*front-page */
-  .front-page-slider.carousel{
-    height: 300px;
-  }
+  /*----front-page-med-screen---- */
 
+  main.front-page{
+    @include splash_carousel(300px, 70px, 0%);
+  }
 
   .single-portfolio .feature-image img{
     width: 100%;
     max-width: 512px;
     max-height: 100%;
   }
+  
+  /*footer */
+  footer {
+    
+    .company-logo{
+      text-align: center;
+      padding-top: 70px;
+      .widget{
+        display: inline-block;
+      }
+    }
+
+    .footer-nav{
+      ul.menu {
+      margin: 0;
+        li {
+          a { 
+            padding: 4px 5px;
+          }
+        }
+      }
+    }
+
+    .company-address{
+      padding-top: 45px;
+      text-align: center;
+      
+      .widget{
+        display: inline-block;
+        text-align: left;
+      }
+    }
+  }
+
+
 
   /*-------------------------*/
   /*-------------------------*/
@@ -400,8 +593,6 @@ footer {
     top: 32px;
     border-top: 3px red solid;
   }
-
-
 }
 
 

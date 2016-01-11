@@ -40,10 +40,7 @@
       ?>
 
       <div class="col-sm-4 col-md-3 ">
-        <div class="portfolio-piece">
-          <pre><?php echo $tn_id ?></pre>
-          <hr>
-          <pre><?php echo print_r($tn_url[0]); ?></pre>
+        <div class="portfolio-piece">            
           <a href="<?php the_permalink(); ?>" >
               <div class="img-container"><img src="<?php echo $tn_url[0]; ?> " alt="<?php the_title(); ?>"></div>
               <div class="label-container">

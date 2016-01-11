@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Abel' rel='stylesheet' type='text/css'>
     <link rel="icon" href="<?php bloginfo('template_directory'); ?>/images/favicon.ico">
 
     <title>
@@ -14,7 +15,7 @@
       <?php bloginfo('name'); ?>
     </title>
 
-    <?php wp_head();     ?>
+    <?php wp_head();?>
   </head>
 
 
@@ -41,3 +42,5 @@
       </div><!--/.navbar-collapse -->
     </div>
   </nav>
+
+     
