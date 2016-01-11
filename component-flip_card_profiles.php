@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="card-label">
-            <h3><?php the_title(); ?></h3>
+            <h3><?php echo  get_the_title();  ?></h3>
             <p><?php echo get_post_meta($post_id, 'title_or_role', true); ?></p>
           </div>
         </div>
@@ -38,3 +38,4 @@
         <?php }} ?>
     </div>
   </div>
+  

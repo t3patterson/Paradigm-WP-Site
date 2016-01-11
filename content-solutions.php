@@ -1,6 +1,6 @@
 <?php 
      
-    $this_pg_title = get_page_by_title('Landing');  
+    $this_pg_title = get_page_by_title('Solutions');  
     $this_pg_pmaLnk = get_permalink($this_pg_title);
     
     $args = [
@@ -10,8 +10,8 @@
     ];
 
     $wp_query = new WP_Query($args);
-   ?>
-    
+?>
+
    <?php 
      if (  have_posts() ){
         while ( $wp_query -> have_posts() ) {
@@ -30,12 +30,10 @@
           <div class="container">
             <div class="row">
               <h2><?php echo get_post_meta($post_id, 'content_title',true); ?></h2>  
-              <div class="col-xs-12 col-sm-9">
+              <div class="col-xs-12">
                 <?php the_content(); ?>
               </div>
-              <div class="col-xs-12 col-sm-3">
-                <img src="<?php  echo $tn_url[0]?>" alt="image-title"> 
-              </div>
+              
             </div>
           </div>
         </div>

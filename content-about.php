@@ -1,6 +1,6 @@
 <?php 
      
-    $this_pg_title = get_page_by_title('Landing');  
+    $this_pg_title = get_page_by_title('About');  
     $this_pg_pmaLnk = get_permalink($this_pg_title);
     
     $args = [
@@ -10,8 +10,8 @@
     ];
 
     $wp_query = new WP_Query($args);
-   ?>
-    
+?>
+
    <?php 
      if (  have_posts() ){
         while ( $wp_query -> have_posts() ) {
@@ -28,15 +28,16 @@
        if ( $the_pageType_pmaLnk == $this_pg_pmaLnk ){ ?> 
         <div class="container-fluid content-block">
           <div class="container">
-            <div class="row">
-              <h2><?php echo get_post_meta($post_id, 'content_title',true); ?></h2>  
-              <div class="col-xs-12 col-sm-9">
-                <?php the_content(); ?>
+              <div class="row">
+                <h2><?php echo get_post_meta($post_id, 'content_title',true); ?></h2>  
+                <div class="col-xs-12 col-sm-9">
+                    <?php the_content(); ?>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                  <?php echo get_post_meta($post_id, 'secondary_content',true); ?>
+                </div>
+                
               </div>
-              <div class="col-xs-12 col-sm-3">
-                <img src="<?php  echo $tn_url[0]?>" alt="image-title"> 
-              </div>
-            </div>
           </div>
         </div>
       <?php   } ?>

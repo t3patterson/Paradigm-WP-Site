@@ -19,7 +19,7 @@
   </div>
   
   <div class="our-team">
-  <?php get_template_part('component','flip_card_profiles'); ?>
+    <?php get_template_part('component','flip_card_profiles'); ?>
   </div>
 
 
