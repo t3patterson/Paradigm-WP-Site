@@ -10,6 +10,16 @@
       <h3>Your needs</h3>
     </div>
   </div>
+  <nav class="on-page-nav">
+     <?php 
+       $args=[
+         'theme_location' => 'solutions',
+         'menu_class' => 'nav navbar-nav',
+         'container' => 'false'
+       ];
+       wp_nav_menu($args)
+     ?>
+  </nav>
 
   <div class="content">
     <?php get_template_part('content','solutions'); ?>   

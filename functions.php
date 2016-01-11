@@ -59,11 +59,11 @@
     register_nav_menus(
       [
         'header-menu' => __('Header Menu'),
-        'sub-menu-landing'=> __('Landing Sub Menu'),
-        'sub-menu-about'=> __('About Sub Menu'),
-        'sub-menu-contact'=> __('Contact Sub Menu'),
-        'sub-menu-solutions'=> __('Solutions Sub Menu'),
-        'sub-menu-products'=> __('Products Sub Menu'),
+        'landing'=> __('Landing Sub Menu'),
+        'about'=> __('About Sub Menu'),
+        'contact'=> __('Contact Sub Menu'),
+        'solutions'=> __('Solutions Sub Menu'),
+        'products'=> __('Products Sub Menu'),
         'footer-menu'=>__('Footer Menu')
       ]
     ); 

@@ -6,7 +6,7 @@
   <nav class="on-page-nav">
      <?php 
        $args=[
-         'menu' => 'sub-menu',
+         'theme_location' => 'landing',
          'menu_class' => 'nav navbar-nav',
          'container' => 'false'
        ];

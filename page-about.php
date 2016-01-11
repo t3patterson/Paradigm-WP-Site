@@ -10,6 +10,17 @@
     </div>
   </div>
 
+  <nav class="on-page-nav">
+     <?php 
+       $args=[
+         'theme_location' => 'about',
+         'menu_class' => 'nav navbar-nav',
+         'container' => 'false'
+       ];
+       wp_nav_menu($args)
+     ?>
+  </nav>
+
   <div class="about-content">
     <?php get_template_part('content','about'); ?>   
     <?php get_template_part('content', 'about_bios'); ?>
