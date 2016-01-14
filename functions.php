@@ -69,7 +69,7 @@
     ); 
   }
 
-  add_action('init', 'register_theme_menus' );
+  add_action('init', 'register_ s' );
   
 
   //-------------
@@ -98,7 +98,9 @@
   create_widget('Page Sidebar', 'page', 'Displays on pages w sidebar');
   create_widget('Blog Sidebar', 'blog', 'Displays on the side of pages in the blog section');
 
+
   create_widget('Company-Description', 'company-desc', 'Wall of Text');
+  create_widget('Company-Contact', 'company-address', 'Phone-Email');
 
 
 ?>

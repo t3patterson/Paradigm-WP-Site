@@ -27,7 +27,7 @@
           <span class="sr-only">Toggle navigation</span>
           <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
-        <a class="navbar-brand" href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory');?>/images/site-icon.png" alt="logo"></a>
+        <a class="navbar-brand" href="<?php bloginfo('url'); ?>"> <img src="<?php bloginfo('template_directory');?>/images/site-icon-logo.png" alt="logo"></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <?php 
@@ -40,6 +40,9 @@
           wp_nav_menu($args)
         ?>
       </div><!--/.navbar-collapse -->
+    </div>
+    <div class="company-contact">
+      <?php if (!dynamic_sidebar('company-address') ) ?>
     </div>
   </nav>
 
